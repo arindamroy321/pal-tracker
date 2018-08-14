@@ -3,7 +3,7 @@ applications:
 - name: pal-tracker
   path: build/libs/pal-tracker.jar
   routes:
-  - route: arindamroy321-pal-tracker-review.apps.sys.pikes.pal.pivotal.io
+  - route: arindamroy321-pal-tracker-review.apps.pikes.pal.pivotal.io
 #  random-route: true
   env:
     WELCOME_MESSAGE: Hello from the review environment again again
