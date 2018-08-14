@@ -6,4 +6,4 @@ applications:
   - route: ps-pal-tracker-review.apps.chicken.pal.pivotal.io
 #  random-route: true
   env:
-    WELCOME_MESSAGE: Hello from the review environment
+    WELCOME_MESSAGE: Hello from the review environment again
