@@ -14,6 +14,7 @@ public class EnvController {
     public String port="";
     public String memory_limit="";
     public String cf_index_instance="";
+
     public String cf_instance_addr="";
 
     public EnvController(@Value("${PORT:NOT SET}") String port,
