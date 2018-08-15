@@ -25,7 +25,7 @@ public class TimeEntryController {
     public ResponseEntity<TimeEntry> read(@PathVariable long id) {
         TimeEntry timeEntry = timeEntryRepository.find(id);
 
-        if(timeEntry == null){
+        if (timeEntry == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -33,17 +33,19 @@ public class TimeEntryController {
         return new ResponseEntity<>(timeEntry, HttpStatus.OK);
 
     }
+
     @GetMapping("/time-entries")
     public ResponseEntity<List<TimeEntry>> list() {
         List<TimeEntry> list = timeEntryRepository.list();
 
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
     @PutMapping("/time-entries/{id}")
     public ResponseEntity update(@PathVariable long id, @RequestBody TimeEntry expected) {
         TimeEntry timeEntry = timeEntryRepository.update(id, expected);
 
-        if(timeEntry == null){
+        if (timeEntry == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
