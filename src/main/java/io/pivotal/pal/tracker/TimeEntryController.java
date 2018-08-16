@@ -2,6 +2,7 @@ package io.pivotal.pal.tracker;
 
 import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.boot.actuate.metrics.GaugeService;
+import org.springframework.boot.actuate.metrics.writer.DefaultCounterService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class TimeEntryController {
         this.counter=counter;
         this.gauge=gauge;
     }
+
 
     @PostMapping("/time-entries")
     public ResponseEntity<TimeEntry> create(@RequestBody TimeEntry timeEntryToCreate) {
@@ -45,9 +47,8 @@ public class TimeEntryController {
 
     @GetMapping("/time-entries")
     public ResponseEntity<List<TimeEntry>> list() {
-        List<TimeEntry> list = timeEntryRepository.list();
         counter.increment("TimeEntry.listed");
-        return new ResponseEntity<>(list, HttpStatus.OK);
+        return new ResponseEntity<>(timeEntryRepository.list(), HttpStatus.OK);
     }
 
     @PutMapping("/time-entries/{id}")
